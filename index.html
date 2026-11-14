@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bakers Point - Wholesale and Retail Bakery Raw Materials">
+<title>Bakers Point | Bakery Supplies</title>
+
+<style>
+:root {
+  --pink: #d92778;
+  --ink: #25212a;
+  --muted: #706a73;
+  --cream: #fffafc;
+  --line: #eee5eb;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: 1180px;
+  margin: auto;
+  padding: 0 22px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: #ffffffed;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 10;
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo img {
+  height: 54px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav a:hover { color: var(--pink); }
+
+.btn {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 13px 19px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  border: 0;
+  cursor: pointer;
+}
+
+.hero {
+  background: linear-gradient(115deg,#fff5fa,#fff 60%,#f9e9f1);
+  padding: 76px 0 70px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(42px,6vw,68px);
+  line-height: 1.02;
+  letter-spacing: -2.8px;
+  margin: 16px 0;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.hero-art {
+  min-height: 300px;
+  border-radius: 24px;
+  background: linear-gradient(140deg,#f3c8dc,#fff0f6);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.art-card {
+  background: white;
+  padding: 14px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 18px 55px #9d35631c;
+}
+
+.art-card img {
+  width: min(100%,390px);
+  height: auto;
+  display: block;
+}
+
+.section { padding: 68px 0; }
+.section.soft { background: var(--cream); }
+
+h2 {
+  font-size: 34px;
+  letter-spacing: -1px;
+  margin: 8px 0;
+}
+
+.sub {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.searchbar { margin: 24px 0 18px; }
+
+.searchbar input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+.filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.filter {
+  border: 1px solid var(--line);
+  background: white;
+  padding: 9px 14px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter.active,
+.filter:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 14px;
+}
+
+.brand {
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 22px 15px;
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: white;
+  transition: .2s;
+}
+
+.brand:hover {
+  transform: translateY(-4px);
+  border-color: #e9a5c5;
+  box-shadow: 0 12px 28px #8e245018;
+}
+
+.brand b { font-size: 18px; }
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.category {
+  padding: 22px;
+  border-radius: 14px;
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.category .ico { font-size: 27px; }
+
+.category h3 {
+  margin: 13px 0 7px;
+  font-size: 17px;
+}
+
+.category p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cta {
+  background: #28232b;
+  color: white;
+  border-radius: 20px;
+  padding: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.cta p {
+  color: #d3cbd2;
+  line-height: 1.6;
+}
+
+footer {
+  background: #1e1a20;
+  color: #eee;
+  padding: 42px 0 22px;
+  margin-top: 68px;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.foot p {
+  color: #bcb4bd;
+  line-height: 1.7;
+}
+
+.foot img {
+  width: 210px;
+  max-width: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.copyright {
+  border-top: 1px solid #403942;
+  margin-top: 28px;
+  padding-top: 18px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.empty {
+  display: none;
+  color: var(--muted);
+  padding: 22px;
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+@media(max-width:850px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { min-height: 220px; }
+  .brand-grid { grid-template-columns: repeat(3,1fr); }
+  .category-grid { grid-template-columns: repeat(2,1fr); }
+  nav { gap: 12px; }
+}
+
+@media(max-width:560px) {
+  .nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+
+  .hero { padding: 52px 0; }
+
+  .brand-grid { grid-template-columns: repeat(2,1fr); }
+
+  .category-grid { grid-template-columns: 1fr 1fr; }
+
+  .section { padding: 48px 0; }
+
+  .cta {
+    padding: 27px;
+    display: block;
+  }
+
+  .cta .btn { margin-top: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap nav">
+
+<a class="logo" href="#">
+<img src="bakers-point-logo.jpg"
+alt="Baker's Point Logo">
+</a>
+
+<nav>
+<a href="#brands">Our Brands</a>
+<a href="#categories">Categories</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<a class="btn"
+href="https://wa.me/917548959155?text=Hello%20Bakers%20Point%2C%20please%20share%20your%20product%20catalogue."
+target="_blank">
+Enquire on WhatsApp
+</a>
+
+</div>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+<div class="wrap hero-grid">
+
+<div>
+<div class="eyebrow">Your Baking Supply Partner</div>
+
+<h1>
+Everything Bakers Need.
+<br>
+<span style="color:var(--pink)">
+All in One Point.
+</span>
+</h1>
+
+<p>
+Your trusted destination for bakery raw materials,
+baking ingredients and professional kitchen essentials.
+Wholesale and retail supplies for bakers, home bakers,
+cafés and food businesses.
+</p>
+
+<a class="btn" href="#brands">
+Explore Our Brands
+</a>
+</div>
+
+<div class="hero-art">
+<div class="art-card">
+<img src="bakers-point-logo.jpg"
+alt="Baker's Point">
+<p>WHOLESALE & RETAIL</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- BRAND SECTION -->
+
+<section class="section" id="brands">
+<div class="wrap">
+
+<div class="eyebrow">Our Brand Partners</div>
+
+<h2>Shop by Company / Brand</h2>
+
+<p class="sub">
+Explore the brands available through Bakers Point.
+</p>
+
+<div class="searchbar">
+<input
+id="brandSearch"
+type="search"
+placeholder="Search a brand name..."
+aria-label="Search brands">
+</div>
+
+<div class="filters">
+
+<button class="filter active"
+data-filter="all">
+All Brands
+</button>
+
+<button class="filter"
+data-filter="bakery">
+Bakery & Ingredients
+</button>
+
+<button class="filter"
+data-filter="food">
+Food & HORECA
+</button>
+
+<button class="filter"
+data-filter="other">
+Other Brands
+</button>
+
+</div>
+
+<div class="brand-grid" id="brandGrid">
+
+<div class="brand"
+data-name="Bakersville"
+data-group="bakery">
+<div>
+<b>BAKERSVILLE</b>
+<small>Bakery & Ingredients</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Goodrich"
+data-group="bakery">
+<div>
+<b>GOODRICH</b>
+<small>Bakery & Ingredients</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Tropolite"
+data-group="bakery">
+<div>
+<b>TROPOLITE</b>
+<small>Bakery & Ingredients</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Mavees"
+data-group="bakery">
+<div>
+<b>MAVEES</b>
+<small>Bakery & Ingredients</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Shinerode"
+data-group="other">
+<div>
+<b>SHINERODE</b>
+<small>Brand Partner</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Creambell"
+data-group="bakery">
+<div>
+<b>CREAMBELL</b>
+<small>Bakery & Ingredients</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Rich"
+data-group="bakery">
+<div>
+<b>RICH</b>
+<small>Bakery & Ingredients</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Tiger C.K"
+data-group="other">
+<div>
+<b>TIGER C.K</b>
+<small>Brand Partner</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Veeba"
+data-group="food">
+<div>
+<b>VEEBA</b>
+<small>Food & HORECA</small>
+</div>
+</div>
+
+<div class="brand"
+data-name="Mayank Gold"
+data-group="other">
+<div>
+<b>MAYANK GOLD</b>
+<small>Brand Partner</small>
+</div>
+</div>
+
+</div>
+
+<div class="empty" id="empty">
+No matching brands found.
+</div>
+
+</div>
+</section>
+
+<!-- CATEGORY SECTION -->
+
+<section class="section soft" id="categories">
+<div class="wrap">
+
+<div class="eyebrow">Browse Our Range</div>
+
+<h2>Shop by Category</h2>
+
+<p class="sub">
+Explore our bakery and food-service product categories.
+</p>
+
+<div class="category-grid">
+
+<article class="category">
+<div class="ico">🍫</div>
+<h3>Chocolate & Compounds</h3>
+<p>Dark, milk and white compounds, chips, cocoa and chocolate essentials.</p>
+</article>
+
+<article class="category">
+<div class="ico">🥛</div>
+<h3>Creams & Dairy</h3>
+<p>Whipping creams, toppings and dairy-based bakery ingredients.</p>
+</article>
+
+<article class="category">
+<div class="ico">🎂</div>
+<h3>Premixes & Ingredients</h3>
+<p>Cake premixes, flavours, colours, fillings and baking essentials.</p>
+</article>
+
+<article class="category">
+<div class="ico">🍯</div>
+<h3>Sauces & HORECA</h3>
+<p>Sauces, spreads and food-service essentials for cafés and kitchens.</p>
+</article>
+
+<article class="category">
+<div class="ico">🧁</div>
+<h3>Bakery Tools & Moulds</h3>
+<p>Moulds, nozzles, spatulas, scrapers and useful baking tools.</p>
+</article>
+
+<article class="category">
+<div class="ico">🎉</div>
+<h3>Party & Cake Decoration</h3>
+<p>Celebration toppers, candles, balloons and cake decoration items.</p>
+</article>
+
+<article class="category">
+<div class="ico">📦</div>
+<h3>Packaging</h3>
+<p>Cake boxes, boards, trays and packaging for bakery businesses.</p>
+</article>
+
+<article class="category">
+<div class="ico">🍪</div>
+<h3>Biscuits & Confectionery</h3>
+<p>Supplies and ingredients for cookies, biscuits and sweet treats.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT / CONTACT CTA -->
+
+<section class="section" id="about">
+<div class="wrap">
+
+<div class="cta">
+
+<div>
+<div class="eyebrow" style="color:#ff9bc7">
+Bakers Point Wholesale & Retail
+</div>
+
+<h2>Let's Make Your Next Bake Better.</h2>
+
+<p>
+For product availability, wholesale rates and bulk
+enquiries, connect with our team.
+</p>
+</div>
+
+<a class="btn"
+href="https://wa.me/917548959155?text=Hello%20Bakers%20Point%2C%20I%20want%20to%20enquire%20about%20products."
+target="_blank">
+Contact Us
+</a>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+<div class="wrap">
+
+<div class="foot">
+
+<div>
+<img src="bakers-point-logo.jpg"
+alt="Baker's Point Logo">
+
+<p>
+Wholesale & Retail Bakery Raw Materials
+<br>
+Your partner for better baking.
+</p>
+</div>
+
+<div>
+<strong>Contact</strong>
+<p>
+Call / WhatsApp: +91 75489 59155
+<br>
+Alipurduar, West Bengal, India
+<br>
+Delivery enquiries welcome
+</p>
+</div>
+
+<div>
+<strong>Quick Links</strong>
+<p>
+<a href="#brands">Our Brands</a>
+<br>
+<a href="#categories">Product Categories</a>
+<br>
+<a href="#about">About Us</a>
+</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© <span id="year"></span> Bakers Point.
+All rights reserved.
+</div>
+
+</div>
+</footer>
+
+<script>
+
+// BRAND SEARCH
+
+const search = document.getElementById('brandSearch');
+
+const cards = [
+  ...document.querySelectorAll('.brand')
+];
+
+const buttons = [
+  ...document.querySelectorAll('.filter')
+];
+
+let selected = 'all';
+
+function update() {
+
+  const term = search.value.trim().toLowerCase();
+
+  let shown = 0;
+
+  cards.forEach(card => {
+
+    const matchesName =
+      card.dataset.name.toLowerCase().includes(term);
+
+    const matchesGroup =
+      selected === 'all' ||
+      card.dataset.group === selected;
+
+    card.style.display =
+      matchesName && matchesGroup ? 'flex' : 'none';
+
+    if (matchesName && matchesGroup) {
+      shown++;
+    }
+
+  });
+
+  document.getElementById('empty').style.display =
+    shown ? 'none' : 'block';
+
+}
+
+search.addEventListener('input', update);
+
+// BRAND FILTERS
+
+buttons.forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    selected = button.dataset.filter;
+
+    buttons.forEach(b =>
+      b.classList.toggle('active', b === button)
+    );
+
+    update();
+
+  });
+
+});
+
+// AUTOMATIC COPYRIGHT YEAR
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
